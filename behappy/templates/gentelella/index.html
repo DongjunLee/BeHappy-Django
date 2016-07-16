@@ -1,0 +1,196 @@
+{% load staticfiles i18n compress %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <!-- Meta, title, CSS, favicons, etc. -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Quantified Self Project for Happiness, Efficiency, Activity">
+  <meta name="author" content="Dongjun Lee">
+  <link rel="shortcut icon" type="image/png" href="../static/img/favicon.png"/>
+
+  <title>Quantified Self Project for Happiness</title>
+
+  {% block css %}
+  <!-- Your stuff: Third-party css libraries go here -->
+  {% compress css %}
+  <!-- This file store project specific CSS -->
+  <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'css/project.css' %}" rel="stylesheet">
+  <link href="{% static 'css/fullpage/jquery.fullPage.css' %}" rel="stylesheet">
+  <link href="{% static 'css/imagepicker/image-picker.css' %}" rel="stylesheet">
+  
+  <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet">
+  <link href="{% static 'css/animate.min.css' %}" rel="stylesheet">
+  <link href="{% static 'css/jquery_ui/jquery-ui.min.css' %}" rel="stylesheet">
+
+  <!-- Custom styling plus plugins -->
+  <link href="{% static 'css/custom.css' %}" rel="stylesheet">
+  <link href="{% static 'css/icheck/flat/green.css' %}" rel="stylesheet">
+  {% endcompress %}
+  
+  {% endblock %}
+</head>
+
+<body class="nav-md">
+
+  <div class="container body">
+
+    <div class="main_container">
+
+	  <div class="col-md-3 left_col">
+        <div class="left_col scroll-view">
+
+          <div class="navbar nav_title" style="border: 0;">
+            <a href="index.html" class="site_title"><span>BeHappy QS Project</span></a>
+          </div>
+          <div class="clearfix"></div>
+
+
+          <!-- menu prile quick info -->
+          <div class="profile">
+            <div class="profile_pic">
+              <img src="{% static 'images/img.jpg' %}" alt="..." class="img-circle profile_img">
+            </div>
+            <div class="profile_info">
+              <span>Welcome!</span>
+              <h2>Master</h2>
+            </div>
+          </div>
+          <!-- /menu prile quick info -->
+          <br />
+          <!-- sidebar menu -->
+		  {% include "sidebar.html" %}
+          <!-- /sidebar menu -->
+        </div>
+      </div>
+
+      <!-- top navigation -->
+	  <!-- /top navigation -->
+
+      <!-- page content -->
+      <div class="right_col" role="main">
+
+		<div id="loading_background" style="display: none;">
+		  <div id="loading">
+		    <h4> Loading.... </h4>
+		  </div>
+		</div>
+
+        <div id="qs_page" class="">
+
+		  <div id="qs_fullpage">
+
+		    <div id="qs_efficiency_container" class="col-md-12 section slide-with-border">
+
+			  <div class="page-title">
+  				<div class="title_left">
+  				  <h3>
+  					Efficiency
+  					<small>with RescueTime</small>
+  				  </h3>
+  				</div>
+  			  </div>
+
+			</div>
+
+			<div id="qs_activity_container" class="col-md-12 section slide-with-border">
+
+			  <div class="page-title">
+  				<div class="title_left">
+  				  <h3>
+  					Activity
+  					<small>with RescueTime</small>
+  				  </h3>
+  				</div>
+  			  </div>
+
+			</div>
+
+			<div id="qs_happiness_container" class="col-md-12 section slide-with-border">
+
+			  <div class="page-title">
+  				<div class="title_left">
+  				  <h3>
+  					Happiness
+  					<small>with Stalker</small>
+  				  </h3>
+  				</div>
+  			  </div>
+
+			</div>
+		
+		  </div>
+
+	    <div class="clearfix"></div>
+
+      </div>
+      <!-- /page content -->
+    </div>
+
+  </div>
+
+  <div id="custom_notifications" class="custom-notifications dsp_none">
+    <ul class="list-unstyled notifications clearfix" data-tabbed_notifications="notif-group">
+    </ul>
+    <div class="clearfix"></div>
+    <div id="notif-group" class="tabbed_notifications"></div>
+  </div>
+
+  <!-- Le javascript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+    {% block javascript %}
+    <!-- Latest JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+
+      !-- Tether - a requirement for Bootstrap tooltips -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.2.0/js/tether.min.js"></script>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js" integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script>
+
+    <!-- Your stuff: Third-party javascript libraries go here -->
+
+    <!-- place project specific Javascript in this file -->
+    {% compress js %}
+
+    <!-- bootstrap progress js -->
+    <script src="{% static 'js/progressbar/bootstrap-progressbar.min.js' %}"></script>
+    <script src="{% static 'js/nicescroll/jquery.nicescroll.min.js' %}"></script>
+    <!-- icheck -->
+    <script src="{% static 'js/icheck/icheck.min.js' %}"></script>
+
+    <!-- pace -->
+    <script src="{% static 'js/pace/pace.min.js' %}"></script>
+
+    <!-- chartJS -->
+    <script src="{% static 'js/chartjs/chart.min.js' %}"></script>
+
+    <!-- echart -->
+    <script src="{% static 'js/echart/echarts-all.js' %}"></script>
+    <script src="{% static 'js/echart/green.js' %}"></script>
+  
+    <!-- image picker -->
+    <script src="{% static 'js/imagepicker/image-picker.min.js' %}"></script>
+  
+    <!-- jQuery fullPage -->
+    <script src="{% static 'js/fullpage/jquery.fullPage.min.js' %}"></script>
+  
+    <!-- CamanJS -->
+    <script src="{% static 'js/caman/caman.full.min.js' %}"></script>
+  
+    <!-- jQuery UI -->
+    <script src="{% static 'js/jquery_ui/jquery-ui.min.js' %}"></script>
+
+     <!-- Custom -->
+    <script src="{% static 'js/qs/main.js' %}"></script>
+    {% endcompress %}
+
+  {% endblock javascript %}
+
+</body>
+
+</html>
