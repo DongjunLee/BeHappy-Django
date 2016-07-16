@@ -58,4 +58,5 @@ $( document ).ready(function() {
 	progress_on(efficiency_ui);
 	$.fn.fullpage.moveTo(1);
 
+	rescuetimeInit();
 });

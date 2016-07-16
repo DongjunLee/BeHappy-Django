@@ -94,6 +94,8 @@
   				</div>
   			  </div>
 
+			  <div id="efficiency_chart"></div>
+
 			</div>
 
 			<div id="qs_activity_container" class="col-md-12 section slide-with-border">
@@ -106,6 +108,8 @@
   				  </h3>
   				</div>
   			  </div>
+
+			  <div id="act_chart"></div>
 
 			</div>
 
@@ -153,6 +157,13 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js" integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script>
 
     <!-- Your stuff: Third-party javascript libraries go here -->
+	
+	<!-- highcharts  -->
+	<script src="https://code.highcharts.com/stock/highstock.js"></script>
+	<script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
+
+	<script src="https://rawgithub.com/phpepe/highcharts-regression/master/highcharts-regression.js"></script>
+	<script src="https://cdn.rawgit.com/highcharts/highcharts/master/js/themes/sand-signika.js" charset="utf-8"></script>
 
     <!-- place project specific Javascript in this file -->
     {% compress js %}
@@ -187,6 +198,7 @@
 
      <!-- Custom -->
     <script src="{% static 'js/qs/main.js' %}"></script>
+    <script src="{% static 'js/qs/rescuetime.js' %}"></script>
     {% endcompress %}
 
   {% endblock javascript %}
