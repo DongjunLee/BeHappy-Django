@@ -15,7 +15,10 @@ import environ
 ROOT_DIR = environ.Path(__file__) - 3  # (behappy/config/settings/common.py - 3 = behappy/)
 APPS_DIR = ROOT_DIR.path('behappy')
 
-env = environ.Env()
+env = environ.Env() # set default values and casting
+environ.Env.read_env() # reading .env file
+
+#env = environ.Env.read_env('.env')
 
 # APP CONFIGURATION
 # ------------------------------------------------------------------------------
