@@ -35,15 +35,45 @@ $("document").ready(function() {
 
 });
 
+function getCurrDate() {
+	var now = new Date();
+
+	var dd = now.getDate();
+	var mm = now.getMonth();
+	var yyyy = now.getFullYear();
+
+	var timeCheckPoint = new Date();
+	timeCheckPoint.setHours(20);
+	timeCheckPoint.setMinutes(0);
+
+	if (now < timeCheckPoint) {
+		now.setDate(now.getDate() - 1);
+		dd = now.getDate();
+		mm = now.getMonth();
+		yyyy = now.getFullYear();
+	}
+
+	if(dd<10) {
+		dd='0'+dd
+	}
+
+	mm += 1;
+	if(mm<10) {
+		mm='0'+mm
+	} 
+
+	var timeDate = yyyy + "-" + mm + "-" + dd;
+	return timeDate
+}	
 
 function rescuetimeInit() {
-    var key = "";
+    var key = "B63XSRwKdo7rhcZqUkBkdRI3uxjhLORfARAWWhpH";
     if (key.length > 5) {
         usingFiles = false;
 
         queries.efficiency.key = queries.activities.key = key;
-        queries.efficiency.restrict_begin = queries.activities.restrict_begin = "2016-07-16";
-        queries.efficiency.restrict_end = queries.activities.restrict_end = "2016-07-16";
+        queries.efficiency.restrict_begin = queries.activities.restrict_begin = getCurrDate();
+        queries.efficiency.restrict_end = queries.activities.restrict_end = getCurrDate();
         queries.efficiency.interval = queries.activities.interval = 'hour';
         queries.efficiency.format = queries.activities.format = 'json';
 
